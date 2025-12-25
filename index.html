@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Realtime Analytics</h1>
+  <h2 id="count">Waiting...</h2>
+
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <script>
+    const socket = io("http://localhost:3000");
+
+    socket.on("connect", () => console.log("Connected"));
+
+    socket.on("analytics_update", data => {
+      document.getElementById("count").innerText =
+        "Total Events: " + data.total_events;
+    });
+  </script>
+</body>
+</html>

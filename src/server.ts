@@ -4,6 +4,7 @@ import cors from 'cors';
 
 // custom imports
 import eventsRouter from './routes/event';
+import analyticsRoutes from "./routes/analytics";
 import "./workers/eventWorkers";
 
 
@@ -24,6 +25,7 @@ app.get('/health', (req, res) => {
 
 // Import and use event routes
 app.use('/api', eventsRouter);
+app.use('/analytics', analyticsRoutes);
 
 
 
